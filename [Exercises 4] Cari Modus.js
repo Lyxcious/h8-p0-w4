@@ -12,11 +12,11 @@ function cariModus(arr) {
     tampungPerulangan = [];
     arr.sort((a, b) => a - b)
     for (var k = 0; k < arr.length; k++){
-        if (k == 0){
+        if (k === 0){
             tampungAngka.push(arr[k]);
             tampungPerulangan.push(1);
         } else {
-            if (arr[k] == arr[k-1]){
+            if (arr[k] === arr[k-1]){
                 tampungPerulangan[tampungPerulangan.length-1]++;
             } else {
                 tampungAngka.push(arr[k]);

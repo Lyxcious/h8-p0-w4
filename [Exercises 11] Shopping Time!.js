@@ -5,7 +5,7 @@ function shoppingTime(memberId, money) {
     b = money;
     c = [];
     d = b;
-    if (typeof memberId !== "string" || memberId === ""){
+    if (memberId === undefined || memberId === ""){
         return "Mohon maaf, toko X hanya berlaku untuk member saja";
     } else {
         if (money < 50000){

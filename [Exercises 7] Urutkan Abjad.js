@@ -1,19 +1,10 @@
 function urutkanAbjad(str) {
-    function findIndex(array1, target) {
-        var index = "";
-        for (var c = 0; c < array1.length; c++){
-            if (array1[c] === target){
-                index = c;
-                return index;
-            }
-        }
-    }
     daftarHuruf = "abcdefghijklmnopqrstuvwxyz";
     str = str.split("");
     indexHuruf = []
     for (var i = 0; i < str.length; i++){
         huruf = str[i];
-        indexHuruf.push(findIndex(daftarHuruf, huruf));
+        indexHuruf.push(daftarHuruf.indexOf(huruf));
     }
     indexHuruf.sort((a, b) => a - b);
     hurufBaru = "";

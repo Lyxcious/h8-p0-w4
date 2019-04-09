@@ -1,7 +1,6 @@
 function checkAB(num) {
     indexA = [];
     indexB = [];
-    num = num.split(" ").join("");
     for (var i = 0; i < num.length; i++){
         if (num.charAt(i) == "a"){
             indexA.push(i);
@@ -22,11 +21,11 @@ function checkAB(num) {
         return false
     } else {
         for (var l = 0; l < jarakAB.length; l++){
-            if (jarakAB[l] <= 3){
+            if (jarakAB[l] === 4){
                 return true;
-                break;
-            }
+            } 
         }
+        return false;
     }
     return jarakAB
 }
@@ -36,4 +35,4 @@ function checkAB(num) {
   console.log(checkAB('i am sick')); // false
   console.log(checkAB('you are boring')); // true
   console.log(checkAB('barbarian')); // true
-  console.log(checkAB('bacon and meat')); // true
+  console.log(checkAB('bacon and meat')); // false

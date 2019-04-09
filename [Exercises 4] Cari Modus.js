@@ -1,13 +1,4 @@
 function cariModus(arr) {
-    function findIndex(array1, target) {
-        var index = "";
-        for (var c = 0; c < array1.length; c++){
-            if (array1[c] === target){
-                index = c;
-                return index;
-            }
-        }
-    }
     tampungAngka = [];
     tampungPerulangan = [];
     arr.sort((a, b) => a - b)
@@ -30,8 +21,8 @@ function cariModus(arr) {
         return -1;
     } else {
         perulanganTerbesar = Math.max.apply(Math, tampungPerulangan);
-        indexAngka = findIndex (tampungPerulangan, perulanganTerbesar)
-        return tampungAngka[indexAngka]
+        indexAngka = tampungPerulangan.indexOf(perulanganTerbesar);
+        return tampungAngka[indexAngka];
     }
 }
   

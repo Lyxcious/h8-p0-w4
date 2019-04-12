@@ -2,7 +2,7 @@ function changeMe(arr) {
     var id;
     var tahunSekarang = 2019;
     for (var i = 0; i < arr.length; i++){
-        id = (i+1) + ". " + arr[i][0] + " " + arr[i][1]; 
+        id = (i+1) + ". " + arr[i][0] + " " + arr[i][1] + ":"; 
         var a, b, c, d;
         a = "";
         b = "";

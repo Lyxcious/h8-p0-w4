@@ -22,4 +22,6 @@ a = {
     d : {}
 }
 a.b["person"] = "nana"
-console.log(a)
+console.log(Object.keys(a)[1])
+
+// Object.keys(obj) untuk menampilkan array berisi index" dalam object obj

@@ -3,51 +3,26 @@ function countProfit(shoppers) {
                        ['Baju Zoro', 500000, 2],
                        ['Sweater Uniklooh', 175000, 1]
                      ];
-    var sisaSepatu = listBarang[0][2];
-    var sisaBaju = listBarang[1][2];
-    var sisaSweater = listBarang[2][2];
-    var shoppersSepatu = [], shoppersBaju = [], shoppersSweater = [];
-    var profitSepatu = 0, profitBaju = 0, profitSweater = 0;
-    for (var i = 0; i < shoppers.length; i++){
-        if (shoppers[i].product === 'Sepatu Stacattu'){
-            if (shoppers[i].amount <= sisaSepatu){
-                shoppersSepatu.push(shoppers[i].name);
-                sisaSepatu -= shoppers[i].amount;
-                profitSepatu = (listBarang[0][2] - sisaSepatu) * listBarang[0][1];
-            }
-        } else if (shoppers[i].product === 'Baju Zoro'){
-            if (shoppers[i].amount <= sisaBaju){
-                shoppersBaju.push(shoppers[i].name);
-                sisaBaju -= shoppers[i].amount;
-                profitBaju = (listBarang[1][2] - sisaBaju) * listBarang[1][1];
-            }
-        } else if (shoppers[i].product === 'Sweater Uniklooh'){
-            if (shoppers[i].amount <= sisaSweater){
-                shoppersSweater.push(shoppers[i].name);
-                sisaSweater -= shoppers[i].amount;
-                profitSweater = (listBarang[2][2] - sisaSweater) * listBarang[2][1];
+    var output = []
+    for (var i = 0; i < listBarang.length; i++){
+        var temp = {
+            product: listBarang[i][0],
+            shoppers: [],
+            leftOver: listBarang[i][2],
+            totalProfit: 0,
+        }
+        for (var j = 0; j < shoppers.length; j++){
+            if (shoppers[j].product === temp.product){
+                if (shoppers[j].amount <= temp.leftOver){
+                    temp.shoppers.push(shoppers[j].name);
+                    temp.leftOver -= shoppers[j].amount;
+                    temp.totalProfit += shoppers[j].amount * listBarang[i][1];
+                }
             }
         }
+        output.push(temp)        
     }
-    var dataSepatu = {
-        product: listBarang[0][0],
-        shoppers: shoppersSepatu,
-        leftOver: sisaSepatu,
-        totalProfit: profitSepatu,
-    }
-    var dataBaju = {
-        product: listBarang[1][0],
-        shoppers: shoppersBaju,
-        leftOver: sisaBaju,
-        totalProfit: profitBaju,
-    }
-    var dataSweater = {
-        product: listBarang[2][0],
-        shoppers: shoppersSweater,
-        leftOver: sisaSweater,
-        totalProfit: profitSweater,
-    }
-    return [dataSepatu, dataBaju, dataSweater]
+    return output
 }
   
 //   // TEST CASES

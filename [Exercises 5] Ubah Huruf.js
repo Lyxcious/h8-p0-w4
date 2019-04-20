@@ -5,7 +5,11 @@ function ubahHuruf(kata) {
     for (var i = 0; i < kata.length; i++){
         hurufLama = kata[i];
         indexHurufLama = huruf.indexOf(hurufLama);
-        kataBaru += huruf[indexHurufLama+1];
+        if(indexHurufLama === 25){
+            kataBaru += huruf[0];
+        } else {
+            kataBaru += huruf[indexHurufLama+1];
+        }
     }
     return kataBaru;
   }

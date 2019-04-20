@@ -4,7 +4,7 @@ function naikAngkot(arrPenumpang) {
     for (var i = 0; i < arrPenumpang.length; i++){
         ruteAwal = rute.indexOf(arrPenumpang[i][1]);
         ruteAkhir = rute.indexOf(arrPenumpang[i][2]);
-        bayar = (ruteAkhir-ruteAwal)*2000;
+        bayar = Math.abs(ruteAkhir-ruteAwal)*2000;
         data.push({
             penumpang: arrPenumpang[i][0],
             naikDari: arrPenumpang[i][1],
